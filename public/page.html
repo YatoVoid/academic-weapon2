@@ -1060,6 +1060,251 @@
             color: var(--text-gray);
             margin-top: 5px;
         }
+
+        .login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #b8b5e8 0%, #8b87c8 50%, #4a4570 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.login-screen.hidden {
+    display: none;
+}
+
+/* Corner Swirls */
+.swirl-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.swirl {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    opacity: 0.4;
+}
+
+.swirl::before,
+.swirl::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.swirl-top-left {
+    top: -150px;
+    left: -150px;
+}
+
+.swirl-top-right {
+    top: -150px;
+    right: -150px;
+}
+
+.swirl-bottom-left {
+    bottom: -150px;
+    left: -150px;
+}
+
+.swirl-bottom-right {
+    bottom: -150px;
+    right: -150px;
+}
+
+.swirl::before {
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    animation: rotate 20s linear infinite;
+}
+
+.swirl::after {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+    animation: rotate-reverse 15s linear infinite;
+}
+
+.swirl-line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid;
+    border-color: transparent;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.swirl-line:nth-child(1) {
+    border-top-color: rgba(255, 255, 255, 0.3);
+    transform: scale(0.9);
+    animation-delay: 0s;
+}
+
+.swirl-line:nth-child(2) {
+    border-right-color: rgba(255, 255, 255, 0.25);
+    transform: scale(0.8);
+    animation-delay: 0.5s;
+}
+
+.swirl-line:nth-child(3) {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    transform: scale(0.7);
+    animation-delay: 1s;
+}
+
+.swirl-line:nth-child(4) {
+    border-left-color: rgba(255, 255, 255, 0.15);
+    transform: scale(0.6);
+    animation-delay: 1.5s;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.swirl-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+}
+
+.book-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+    position: relative;
+    z-index: 1;
+}
+
+.logo-text {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    color: white;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.google-signin-btn {
+    width: 100%;
+    max-width: 320px;
+    background: white;
+    color: #3c4043;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-bottom: 16px;
+}
+
+.google-signin-btn:hover {
+    background: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.create-account-btn {
+    width: 100%;
+    max-width: 320px;
+    background: transparent;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 24px;
+}
+
+.create-account-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.terms-text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    max-width: 320px;
+    line-height: 1.5;
+}
+
+.terms-text a {
+    color: white;
+    text-decoration: none;
+}
+
+.terms-text a:hover {
+    text-decoration: underline;
+}
         
         @media (max-width: 480px) {
             .chatbot-container {
@@ -1082,44 +1327,75 @@
         <p style="margin-top: 20px; color: var(--text-gray);">Loading Mentora...</p>
     </div>
     
-    <div class="login-screen" id="loginScreen">
-        <div class="swirl-container">
-            <div class="swirl swirl-top-left">
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-            </div>
-            <div class="swirl swirl-top-right">
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-            </div>
-            <div class="swirl swirl-bottom-left">
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-            </div>
-            <div class="swirl swirl-bottom-right">
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-                <div class="swirl-line"></div>
-            </div>
+    
+        <div class="login-screen" id="loginScreen">
+    <!-- Corner Swirls -->
+    <div class="swirl-container">
+        <div class="swirl swirl-top-left">
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+        </div>
+        <div class="swirl swirl-top-right">
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+        </div>
+        <div class="swirl swirl-bottom-left">
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+        </div>
+        <div class="swirl swirl-bottom-right">
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+            <div class="swirl-line"></div>
+        </div>
+    </div>
+    
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="/assets/icons/swirl.svg" class="swirl-bg" alt="">
+            <img src="/assets/icons/book.svg" class="book-icon" alt="Mentora">
+            <h1 class="logo-text">MENTORA</h1>
         </div>
         
-        <div class="app-logo">🎓</div>
-        <h1 class="app-title">MENTORA</h1>
-        <p class="app-tagline">Navigate Your Academic Success</p>
         <button class="google-signin-btn" onclick="handleGoogleLogin()">
-            <span>🔑</span>
-            Sign in with Google
+            <svg width="18" height="18" viewBox="0 0 18 18">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.347 6.173 0 7.548 0 9s.348 2.827.957 4.042l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+            </svg>
+            Continue with Google
         </button>
         
+        <button class="create-account-btn">
+            Create Account
+        </button>
         
+        <p class="terms-text">By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
     </div>
+</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     
     <div id="mainApp">
         <div class="header">
