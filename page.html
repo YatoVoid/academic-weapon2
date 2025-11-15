@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mentora - AI Study Companion</title>
     
-    <!-- Google APIs -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://apis.google.com/js/api.js"></script>
     
@@ -35,7 +34,6 @@
             overflow-x: hidden;
         }
         
-        /* Loading Screen */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -70,7 +68,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Login Screen */
         .login-screen {
             position: fixed;
             top: 0;
@@ -93,7 +90,6 @@
             display: none;
         }
         
-        /* Swirl Background Effects */
         .swirl-container {
             position: absolute;
             width: 100%;
@@ -140,7 +136,6 @@
             right: -200px;
         }
         
-        /* Circular gradient lines */
         .swirl::before {
             border-top: 2px solid #4a9eff;
             border-right: 2px solid #ff4a9e;
@@ -153,7 +148,6 @@
             animation: rotate-reverse 15s linear infinite;
         }
         
-        /* Additional circular lines */
         .swirl-line {
             position: absolute;
             width: 100%;
@@ -256,7 +250,6 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.2);
         }
         
-        /* Header */
         .header {
             background: var(--gradient);
             padding: 20px;
@@ -296,14 +289,12 @@
             color: var(--primary-purple);
         }
         
-        /* Main Content */
         .main-content {
             padding: 20px;
             max-width: 600px;
             margin: 0 auto;
         }
         
-        /* Dashboard Cards */
         .dashboard-grid {
             display: grid;
             gap: 20px;
@@ -348,7 +339,6 @@
             cursor: pointer;
         }
         
-        /* Calendar Widget */
         .mini-calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -392,7 +382,6 @@
             color: var(--primary-blue);
         }
         
-        /* Upcoming Events */
         .event-item {
             display: flex;
             align-items: center;
@@ -465,7 +454,6 @@
             color: #C05621;
         }
         
-        /* Grade Progress */
         .grade-item {
             margin-bottom: 15px;
         }
@@ -497,7 +485,6 @@
             transition: width 0.5s ease;
         }
         
-        /* To-Do List */
         .todo-item {
             display: flex;
             align-items: center;
@@ -552,7 +539,6 @@
             background: #48BB78;
         }
         
-        /* Floating Action Button */
         .fab-container {
             position: fixed;
             bottom: 80px;
@@ -608,7 +594,6 @@
             background: var(--bg-light);
         }
         
-        /* Bottom Navigation */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -646,7 +631,6 @@
             font-size: 10px;
         }
         
-        /* Screens */
         .screen {
             display: none;
             animation: fadeIn 0.3s;
@@ -661,7 +645,6 @@
             to { opacity: 1; }
         }
         
-        /* Syllabus Upload */
         .upload-area {
             border: 2px dashed var(--primary-blue);
             border-radius: var(--border-radius);
@@ -704,7 +687,6 @@
             display: inline-block;
         }
         
-        /* Syllabus List */
         .syllabus-item {
             display: flex;
             align-items: center;
@@ -750,7 +732,6 @@
             color: #276749;
         }
         
-        /* Grade Calculator */
         .grade-calc-section {
             margin-bottom: 20px;
         }
@@ -817,7 +798,6 @@
             opacity: 0.9;
         }
         
-        /* Settings Screen */
         .settings-section {
             margin-bottom: 30px;
         }
@@ -898,7 +878,6 @@
             margin-top: 20px;
         }
         
-        /* Chatbot Interface */
         .chatbot-container {
             position: fixed;
             bottom: 80px;
@@ -996,7 +975,6 @@
             justify-content: center;
         }
         
-        /* Insights Screen */
         .insight-card {
             background: white;
             border-radius: var(--border-radius);
@@ -1075,7 +1053,6 @@
             margin-top: 5px;
         }
         
-        /* Responsive */
         @media (max-width: 480px) {
             .chatbot-container {
                 width: 100%;
@@ -1092,15 +1069,12 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loader"></div>
         <p style="margin-top: 20px; color: var(--text-gray);">Loading Mentora...</p>
     </div>
     
-    <!-- Login Screen -->
     <div class="login-screen" id="loginScreen">
-        <!-- Swirl Background Effects -->
         <div class="swirl-container">
             <div class="swirl swirl-top-left">
                 <div class="swirl-line"></div>
@@ -1137,9 +1111,7 @@
         </button>
     </div>
     
-    <!-- Main App -->
     <div id="mainApp" style="display: none;">
-        <!-- Header -->
         <div class="header">
             <div class="header-content">
                 <h1>📚 Study Dashboard</h1>
@@ -1150,12 +1122,9 @@
             </div>
         </div>
         
-        <!-- Main Content Area -->
         <div class="main-content" style="padding-bottom: 80px;">
-            <!-- Home Screen -->
             <div id="homeScreen" class="screen active">
                 <div class="dashboard-grid">
-                    <!-- Calendar Widget -->
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
@@ -1165,11 +1134,9 @@
                             <span class="view-all-btn" onclick="showScreen('syllabusScreen')">View All</span>
                         </div>
                         <div class="mini-calendar" id="miniCalendar">
-                            <!-- Calendar will be generated by JS -->
                         </div>
                     </div>
                     
-                    <!-- Upcoming Events -->
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
@@ -1214,7 +1181,6 @@
                         </div>
                     </div>
                     
-                    <!-- Grade Progress -->
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
@@ -1254,7 +1220,6 @@
                         </div>
                     </div>
                     
-                    <!-- To-Do List -->
                     <div class="card">
                         <div class="card-header">
                             <div class="card-title">
@@ -1292,7 +1257,6 @@
                 </div>
             </div>
             
-            <!-- Grades Screen -->
             <div id="gradesScreen" class="screen">
                 <div class="card">
                     <div class="card-header">
@@ -1379,7 +1343,6 @@
                 </div>
             </div>
             
-            <!-- Syllabus Screen -->
             <div id="syllabusScreen" class="screen">
                 <div class="card">
                     <div class="card-header">
@@ -1427,7 +1390,6 @@
                 </div>
             </div>
             
-            <!-- Insights Screen -->
             <div id="insightsScreen" class="screen">
                 <div class="insight-card">
                     <div class="insight-title">
@@ -1503,7 +1465,6 @@
                 </div>
             </div>
             
-            <!-- Settings Screen -->
             <div id="settingsScreen" class="screen">
                 <div class="settings-section">
                     <div class="settings-title">Profile</div>
@@ -1589,7 +1550,6 @@
             </div>
         </div>
         
-        <!-- Floating Action Button -->
         <div class="fab-container">
             <div class="fab-menu" id="fabMenu">
                 <div class="fab-menu-item" onclick="openChatbot()">
@@ -1608,7 +1568,6 @@
             <button class="fab" onclick="toggleFabMenu()">+</button>
         </div>
         
-        <!-- Chatbot Interface -->
         <div class="chatbot-container" id="chatbot">
             <div class="chatbot-header">
                 <div class="chatbot-title">AI Study Assistant</div>
@@ -1633,7 +1592,6 @@
             </div>
         </div>
         
-        <!-- Bottom Navigation -->
         <div class="bottom-nav">
             <div class="nav-item" onclick="showScreen('syllabusScreen')">
                 <span class="nav-icon">📚</span>
@@ -1659,26 +1617,22 @@
     </div>
     
     <script>
-        // Global variables
         let currentUser = null;
         let isLoggedIn = false;
         let gapi = window.gapi;
         let googleAuth = null;
         
-        // Your actual Zapier webhook URLs
         const ZAPIER_WEBHOOKS = {
-            emailScan: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/', // Your webhook
-            syllabusUpload: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/', // Your webhook
-            createEvent: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/' // Your webhook
+            emailScan: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/',
+            syllabusUpload: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/',
+            createEvent: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/'
         };
         
-        // Google API configuration
-        const GOOGLE_CLIENT_ID = '839330387376-bheeuo67a8k2v0ddvjv0i0d6hnnfhvad.apps.googleusercontent.com'; // Your Client ID
-        const GOOGLE_API_KEY = 'AIzaSyBVuFctE3oLnb8JYf-pUfSklsJiCefdoM0'; // Your API Key
+        const GOOGLE_CLIENT_ID = '839330387376-bheeuo67a8k2v0ddvjv0i0d6hnnfhvad.apps.googleusercontent.com';
+        const GOOGLE_API_KEY = 'AIzaSyBVuFctE3oLnb8JYf-pUfSklsJiCefdoM0';
         const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
         const SCOPES = 'https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar';
         
-        // Initialize Google API
         function initGoogleAPI() {
             gapi.load('client:auth2', () => {
                 gapi.client.init({
@@ -1687,21 +1641,16 @@
                     discoveryDocs: DISCOVERY_DOCS,
                     scope: SCOPES
                 }).then(() => {
-                    // Listen for sign-in state changes
                     googleAuth = gapi.auth2.getAuthInstance();
                     googleAuth.isSignedIn.listen(updateSigninStatus);
-                    
-                    // Handle initial sign-in state
                     updateSigninStatus(googleAuth.isSignedIn.get());
                 }).catch(error => {
                     console.error('Error initializing Google API:', error);
-                    // Fall back to demo mode if API keys not configured
                     console.log('Running in demo mode - configure API keys for full functionality');
                 });
             });
         }
         
-        // Update sign-in status
         function updateSigninStatus(isSignedIn) {
             if (isSignedIn) {
                 const profile = googleAuth.currentUser.get().getBasicProfile();
@@ -1717,30 +1666,22 @@
                 
                 document.getElementById('loginScreen').classList.add('hidden');
                 showMainApp();
-                
-                // Load calendar events
                 loadCalendarEvents();
-                
-                // Start monitoring for email updates via Zapier
                 startEmailMonitoring();
             }
         }
         
-        // Handle Google Sign-In
         function handleGoogleLogin() {
             if (googleAuth) {
                 googleAuth.signIn().catch(error => {
                     console.error('Sign-in error:', error);
-                    // Fall back to demo mode
                     handleDemoLogin();
                 });
             } else {
-                // Demo mode if Google API not initialized
                 handleDemoLogin();
             }
         }
         
-        // Demo login for testing
         function handleDemoLogin() {
             const mockUser = {
                 name: 'Wali Lambert',
@@ -1759,7 +1700,6 @@
             console.log('Running in demo mode - Google API not configured');
         }
         
-        // Load Google Calendar events
         function loadCalendarEvents() {
             if (!gapi.client.calendar) {
                 console.log('Calendar API not loaded - using demo events');
@@ -1783,7 +1723,6 @@
             });
         }
         
-        // Display calendar events in the UI
         function displayCalendarEvents(events) {
             const eventsContainer = document.getElementById('upcomingEvents');
             eventsContainer.innerHTML = '';
@@ -1792,7 +1731,6 @@
                 const start = event.start.dateTime || event.start.date;
                 const eventDate = new Date(start);
                 
-                // Determine event type from title
                 let eventType = 'event';
                 const title = event.summary.toLowerCase();
                 if (title.includes('assignment') || title.includes('homework')) {
@@ -1821,7 +1759,6 @@
             });
         }
         
-        // Create Google Calendar event
         function createCalendarEvent(title, date, time) {
             if (!gapi.client.calendar) {
                 console.log('Calendar API not loaded');
@@ -1833,10 +1770,10 @@
                 'summary': title,
                 'start': {
                     'dateTime': eventDateTime.toISOString(),
-                    'timeZone': 'America/Chicago' // Houston timezone
+                    'timeZone': 'America/Chicago'
                 },
                 'end': {
-                    'dateTime': new Date(eventDateTime.getTime() + 60*60*1000).toISOString(), // 1 hour duration
+                    'dateTime': new Date(eventDateTime.getTime() + 60*60*1000).toISOString(),
                     'timeZone': 'America/Chicago'
                 },
                 'reminders': {
@@ -1855,14 +1792,12 @@
             
             return request.execute(event => {
                 console.log('Event created: ', event);
-                loadCalendarEvents(); // Reload events
+                loadCalendarEvents();
                 return event;
             });
         }
         
-        // Monitor for email updates via Zapier
         function startEmailMonitoring() {
-            // Send initial webhook to register user
             fetch(ZAPIER_WEBHOOKS.emailScan, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1875,14 +1810,10 @@
                 console.error('Error connecting to Zapier:', error);
             });
             
-            // Poll for updates (in production, use webhooks or server-sent events)
-            setInterval(checkForEmailUpdates, 60000); // Check every minute
+            setInterval(checkForEmailUpdates, 60000);
         }
         
-        // Check for email updates from Zapier
         function checkForEmailUpdates() {
-            // In production, this would check a backend endpoint that Zapier updates
-            // For now, we'll simulate checking for updates
             fetch(ZAPIER_WEBHOOKS.emailScan, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -1892,35 +1823,27 @@
                     timestamp: new Date().toISOString()
                 })
             }).then(response => {
-                // Handle response if Zapier sends back data
                 console.log('Checked for email updates');
             }).catch(error => {
                 console.error('Error checking email updates:', error);
             });
         }
         
-        // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 document.getElementById('loadingScreen').classList.add('hidden');
                 
-                // Try to initialize Google API
                 if (window.gapi) {
                     initGoogleAPI();
                 } else {
-                    // If Google API not loaded, check for saved user
                     checkLoginStatus();
                 }
             }, 1500);
             
-            // Initialize calendar
             generateMiniCalendar();
-            
-            // Setup drag and drop
             setupDragAndDrop();
         });
         
-        // Login/Logout Functions
         function checkLoginStatus() {
             const savedUser = localStorage.getItem('mentoraUser');
             if (savedUser) {
@@ -1958,22 +1881,17 @@
             }
         }
         
-        // Screen Navigation
         function showScreen(screenId) {
-            // Hide all screens
             document.querySelectorAll('.screen').forEach(screen => {
                 screen.classList.remove('active');
             });
             
-            // Show selected screen
             document.getElementById(screenId).classList.add('active');
             
-            // Update nav items
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
             
-            // Set active nav item
             const screenIndex = {
                 'syllabusScreen': 0,
                 'gradesScreen': 1,
@@ -1987,7 +1905,6 @@
             }
         }
         
-        // Calendar Functions
         function generateMiniCalendar() {
             const calendar = document.getElementById('miniCalendar');
             const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -1997,10 +1914,8 @@
             const firstDay = new Date(currentYear, currentMonth, 1).getDay();
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
             
-            // Clear calendar
             calendar.innerHTML = '';
             
-            // Add day headers
             days.forEach(day => {
                 const dayHeader = document.createElement('div');
                 dayHeader.className = 'calendar-day header';
@@ -2008,25 +1923,21 @@
                 calendar.appendChild(dayHeader);
             });
             
-            // Add empty cells for days before month starts
             for (let i = 0; i < firstDay; i++) {
                 const emptyDay = document.createElement('div');
                 emptyDay.className = 'calendar-day';
                 calendar.appendChild(emptyDay);
             }
             
-            // Add days of month
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayCell = document.createElement('div');
                 dayCell.className = 'calendar-day';
                 dayCell.textContent = day;
                 
-                // Highlight today
                 if (day === today.getDate()) {
                     dayCell.classList.add('today');
                 }
                 
-                // Add sample events (in production, fetch from Google Calendar)
                 if ([17, 20, 25].includes(day)) {
                     dayCell.classList.add('has-event');
                 }
@@ -2035,7 +1946,6 @@
             }
         }
         
-        // FAB Functions
         function toggleFabMenu() {
             const menu = document.getElementById('fabMenu');
             menu.classList.toggle('active');
@@ -2048,14 +1958,12 @@
                 const eventTime = prompt('Enter time (HH:MM):');
                 
                 if (eventDate && eventTime) {
-                    // Try to create event in Google Calendar
                     if (gapi && gapi.client && gapi.client.calendar) {
                         createCalendarEvent(eventTitle, eventDate, eventTime).then(() => {
                             alert('Event added to Google Calendar!');
                             toggleFabMenu();
                         }).catch(error => {
                             console.error('Error creating event:', error);
-                            // Fall back to Zapier
                             sendToZapier('createEvent', {
                                 title: eventTitle,
                                 date: eventDate,
@@ -2066,7 +1974,6 @@
                             toggleFabMenu();
                         });
                     } else {
-                        // Use Zapier if Google API not available
                         sendToZapier('createEvent', {
                             title: eventTitle,
                             date: eventDate,
@@ -2080,7 +1987,6 @@
             }
         }
         
-        // Chatbot Functions
         function openChatbot() {
             document.getElementById('chatbot').classList.add('active');
             toggleFabMenu();
@@ -2095,13 +2001,8 @@
             const message = input.value.trim();
             
             if (message) {
-                // Add user message
                 addChatMessage(message, true);
-                
-                // Clear input
                 input.value = '';
-                
-                // Process message and generate response
                 processChatMessage(message);
             }
         }
@@ -2124,7 +2025,6 @@
             messageDiv.appendChild(bubble);
             messagesContainer.appendChild(messageDiv);
             
-            // Scroll to bottom
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
         
@@ -2135,7 +2035,6 @@
                 if (lowerMessage.includes('grade') || lowerMessage.includes('calculator')) {
                     addChatMessage('I can help you calculate your grade! Go to the Grades tab or tell me your scores and weights.');
                 } else if (lowerMessage.includes('event') || lowerMessage.includes('calendar')) {
-                    // Send to Zapier for calendar creation
                     sendToZapier('chatbotEvent', {
                         message: message,
                         user: currentUser?.email
@@ -2151,7 +2050,6 @@
             }, 1000);
         }
         
-        // File Upload Functions
         function setupDragAndDrop() {
             const uploadArea = document.getElementById('uploadArea');
             
@@ -2181,13 +2079,10 @@
             const file = event.target.files[0];
             
             if (file && file.type === 'application/pdf') {
-                // Show loading state
                 const uploadArea = document.getElementById('uploadArea');
                 uploadArea.innerHTML = '<div class="loader"></div><p>Processing syllabus...</p>';
                 
-                // Simulate file upload to Zapier
                 setTimeout(() => {
-                    // Send to Zapier for processing
                     sendToZapier('syllabusUpload', {
                         fileName: file.name,
                         fileSize: file.size,
@@ -2195,10 +2090,8 @@
                         timestamp: new Date().toISOString()
                     });
                     
-                    // Add to syllabus list
                     addSyllabusToList(file.name);
                     
-                    // Reset upload area
                     uploadArea.innerHTML = `
                         <div class="upload-icon">📤</div>
                         <div class="upload-text">Drop your syllabus PDF here or click to browse</div>
@@ -2226,13 +2119,11 @@
             `;
             syllabusList.insertBefore(newItem, syllabusList.firstChild);
             
-            // Update status after delay
             setTimeout(() => {
                 newItem.querySelector('.syllabus-status').textContent = 'Synced';
             }, 3000);
         }
         
-        // Grade Calculator Functions
         function addGradeRow() {
             const container = document.getElementById('gradeInputs');
             const newRow = document.createElement('div');
@@ -2294,7 +2185,6 @@
             return 'F';
         }
         
-        // Todo Functions
         function toggleTodo(checkbox) {
             checkbox.classList.toggle('checked');
             const todoText = checkbox.nextElementSibling;
@@ -2307,35 +2197,27 @@
             }
         }
         
-        // Settings Functions
         function toggleSwitch(toggle) {
             toggle.classList.toggle('active');
         }
         
-        // Zapier Integration
         function sendToZapier(eventType, data) {
             if (ZAPIER_WEBHOOKS[eventType]) {
-                // Zapier webhooks work but will show CORS errors in console - this is normal
-                // The webhook still receives the data despite the error
                 fetch(ZAPIER_WEBHOOKS[eventType], {
                     method: 'POST',
-                    mode: 'no-cors', // This bypasses CORS but we won't get a response
+                    mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 }).then(() => {
                     console.log('Sent to Zapier:', eventType, data);
-                    // Note: We can't read the response due to CORS, but Zapier still gets the data
                 }).catch(error => {
-                    // CORS errors are expected - Zapier still receives the webhook
                     console.log('Zapier webhook sent (CORS error is normal):', eventType);
                 });
             }
         }
         
-        // Handle Zapier webhook notifications (called when email update detected)
         function handleZapierNotification(data) {
             if (data.type === 'schedule_change') {
-                // Add alert to upcoming events
                 const eventsContainer = document.getElementById('upcomingEvents');
                 if (eventsContainer) {
                     const alertDiv = document.createElement('div');
@@ -2353,7 +2235,6 @@
                     `;
                     eventsContainer.insertBefore(alertDiv, eventsContainer.firstChild);
                     
-                    // Create calendar event if Google API available
                     if (data.date && data.time && gapi && gapi.client && gapi.client.calendar) {
                         createCalendarEvent(data.title, data.date, data.time);
                     }
