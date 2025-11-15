@@ -8,6 +8,12 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://apis.google.com/js/api.js"></script>
     
+   
+
+
+</script>
+
+    
     <style>
         * {
             margin: 0;
@@ -18,7 +24,7 @@
         :root {
             --primary-blue: #4169E1;
             --primary-purple: #6B46C1;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient: linear-gradient(135deg, #0090AB 0%, #6A75F8 100%);
             --bg-light: #F8F9FA;
             --text-dark: #1A202C;
             --text-gray: #718096;
@@ -273,8 +279,9 @@
         
         .user-info {
             display: flex;
-            align-items: center;
             gap: 10px;
+            margin-left: auto;
+            align-items: center 
         }
         
         .user-avatar {
@@ -332,6 +339,7 @@
         .card-icon {
             font-size: 20px;
         }
+        
         
         .view-all-btn {
             font-size: 12px;
@@ -1109,12 +1117,14 @@
             <span>🔑</span>
             Sign in with Google
         </button>
+        
+        
     </div>
     
-    <div id="mainApp" style="display: none;">
+    <div id="mainApp">
         <div class="header">
             <div class="header-content">
-                <h1>📚 Study Dashboard</h1>
+                <!-- <h1>📚 Study Dashboard</h1> -->
                 <div class="user-info">
                     <span id="userName">Welcome back!</span>
                     <div class="user-avatar" id="userAvatar">T</div>
@@ -1594,23 +1604,23 @@
         
         <div class="bottom-nav">
             <div class="nav-item" onclick="showScreen('syllabusScreen')">
-                <span class="nav-icon">📚</span>
+                <img src="assets/icons/syllabus.svg" class="nav-icon-img">
                 <span class="nav-label">Syllabus</span>
             </div>
             <div class="nav-item" onclick="showScreen('gradesScreen')">
-                <span class="nav-icon">📊</span>
+                <img src="assets/icons/grades.svg" class="nav-icon-img">
                 <span class="nav-label">Grades</span>
             </div>
             <div class="nav-item active" onclick="showScreen('homeScreen')">
-                <span class="nav-icon">🏠</span>
+                <img src="assets/icons/home.svg" class="nav-icon-img">
                 <span class="nav-label">Home</span>
             </div>
             <div class="nav-item" onclick="showScreen('insightsScreen')">
-                <span class="nav-icon">💡</span>
+                <img src="assets/icons/insights.svg" class="nav-icon-img">
                 <span class="nav-label">Insights</span>
             </div>
             <div class="nav-item" onclick="showScreen('settingsScreen')">
-                <span class="nav-icon">⚙️</span>
+                <img src="assets/icons/settings.svg" class="nav-icon-img">
                 <span class="nav-label">Settings</span>
             </div>
         </div>
@@ -1621,6 +1631,8 @@
         let isLoggedIn = false;
         let gapi = window.gapi;
         let googleAuth = null;
+        handleDemoLogin();  
+        
         
         const ZAPIER_WEBHOOKS = {
             emailScan: 'https://hooks.zapier.com/hooks/catch/25377433/u8erojw/',
@@ -1685,7 +1697,7 @@
         function handleDemoLogin() {
             const mockUser = {
                 name: 'Wali Lambert',
-                email: 'wali@example.com',
+                email: 'wali.lambert1960@gmail.com',
                 avatar: 'W',
                 googleId: 'demo_user_123'
             };
@@ -1828,7 +1840,7 @@
                 console.error('Error checking email updates:', error);
             });
         }
-        
+      
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 document.getElementById('loadingScreen').classList.add('hidden');
@@ -1990,6 +2002,7 @@
         function openChatbot() {
             document.getElementById('chatbot').classList.add('active');
             toggleFabMenu();
+            
         }
         
         function closeChatbot() {
@@ -2014,41 +2027,114 @@
         }
         
         function addChatMessage(message, isUser = false) {
-            const messagesContainer = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${isUser ? 'user' : ''}`;
-            
-            const bubble = document.createElement('div');
-            bubble.className = 'chat-bubble';
-            bubble.textContent = message;
-            
-            messageDiv.appendChild(bubble);
-            messagesContainer.appendChild(messageDiv);
-            
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
+    const messagesContainer = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isUser ? 'user' : ''}`;
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = message;
+    
+    messageDiv.appendChild(bubble);
+    messagesContainer.appendChild(messageDiv);
+    
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
         
-        function processChatMessage(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            setTimeout(() => {
-                if (lowerMessage.includes('grade') || lowerMessage.includes('calculator')) {
-                    addChatMessage('I can help you calculate your grade! Go to the Grades tab or tell me your scores and weights.');
-                } else if (lowerMessage.includes('event') || lowerMessage.includes('calendar')) {
-                    sendToZapier('chatbotEvent', {
-                        message: message,
-                        user: currentUser?.email
-                    });
-                    addChatMessage('I\'ll help you add that to your calendar. Please provide the event details (title, date, and time).');
-                } else if (lowerMessage.includes('syllabus')) {
-                    addChatMessage('You can upload your syllabus in the Syllabus tab. I\'ll automatically extract all important dates and add them to your calendar!');
-                } else if (lowerMessage.includes('study') || lowerMessage.includes('help')) {
-                    addChatMessage('Based on your upcoming assignments, I recommend focusing on:\n\n1. Assignment 3 (due in 2 days)\n2. Chapter 6 Quiz preparation\n3. Start reviewing for the Midterm exam');
-                } else {
-                    addChatMessage('I\'m here to help! You can ask me about grades, calendar events, syllabus information, or study recommendations.');
+    
+     
+
+        async function sendToZapierWebhook(message) {
+    const userName = currentUser?.name || "User";
+
+    try {
+        // Send message to Zapier
+        const response = await fetch("http://localhost:3000/send-message", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ firstName: userName, message })
+        });
+
+        const data = await response.json();
+        console.log("Message sent to server:", data);
+        
+        // Show waiting message
+        addChatMessage("Thinking...", false);
+
+        // Poll for reply with increased timeout
+        pollForReply();
+
+    } catch (error) {
+        console.error("Network error:", error);
+        addChatMessage("Network error. Could not send message.", false);
+    }
+}
+
+function pollForReply() {
+    const maxAttempts = 60; // Poll for up to 60 seconds (Zapier can be slow)
+    let attempts = 0;
+
+    console.log("Started polling for AI reply...");
+
+    const interval = setInterval(async () => {
+        attempts++;
+        console.log(`Polling attempt ${attempts}/${maxAttempts}`);
+
+        try {
+            const response = await fetch("http://localhost:3000/latest-reply");
+            const data = await response.json();
+
+            console.log("Poll response:", data);
+
+            if (data.success && data.reply) {
+                console.log("✓ Received AI reply:", data.reply);
+                
+                // Remove "Thinking..." message
+                const messages = document.getElementById('chatMessages');
+                const lastMessage = messages.lastElementChild;
+                if (lastMessage && lastMessage.querySelector('.chat-bubble').textContent === "Thinking...") {
+                    lastMessage.remove();
                 }
-            }, 1000);
+
+                // Add AI reply
+                addChatMessage(data.reply, false);
+                clearInterval(interval);
+                console.log("Polling stopped - reply received");
+            } else if (attempts >= maxAttempts) {
+                // Timeout
+                console.log("Polling timeout - no reply received");
+                const messages = document.getElementById('chatMessages');
+                const lastMessage = messages.lastElementChild;
+                if (lastMessage && lastMessage.querySelector('.chat-bubble').textContent === "Thinking...") {
+                    lastMessage.remove();
+                }
+                addChatMessage("Sorry, the response is taking too long. Please try again.", false);
+                clearInterval(interval);
+            }
+        } catch (error) {
+            console.error("Error polling for reply:", error);
+            if (attempts >= maxAttempts) {
+                clearInterval(interval);
+            }
         }
+    }, 1000); // Poll every second
+}
+
+function processChatMessage(message) {
+    const lowerMessage = message.toLowerCase();
+
+    // Optional: keep some built-in responses
+    if (lowerMessage.includes('grade') && lowerMessage.includes('calculator')) {
+        setTimeout(() => {
+            addChatMessage('I can help you calculate your grade! Go to the Grades tab or tell me your scores and weights.', false);
+        }, 500);
+    } else {
+        // Send all other messages to Zapier
+        sendToZapierWebhook(message);
+    }
+}
+
         
         function setupDragAndDrop() {
             const uploadArea = document.getElementById('uploadArea');
