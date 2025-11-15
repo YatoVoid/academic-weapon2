@@ -1112,7 +1112,7 @@
         
         <div class="app-logo">🎓</div>
         <h1 class="app-title">MENTORA</h1>
-        <p class="app-tagline">does wirlow: app</p>
+        <p class="app-tagline">Navigate Your Academic Success</p>
         <button class="google-signin-btn" onclick="handleGoogleLogin()">
             <span>🔑</span>
             Sign in with Google
@@ -1604,23 +1604,23 @@
         
         <div class="bottom-nav">
             <div class="nav-item" onclick="showScreen('syllabusScreen')">
-                <img src="assets/icons/syllabus.svg" class="nav-icon-img">
+                <img src="/assets/icons/syllabus.svg" class="nav-icon-img">
                 <span class="nav-label">Syllabus</span>
             </div>
             <div class="nav-item" onclick="showScreen('gradesScreen')">
-                <img src="assets/icons/grades.svg" class="nav-icon-img">
+                <img src="/assets/icons/grades.svg" class="nav-icon-img">
                 <span class="nav-label">Grades</span>
             </div>
             <div class="nav-item active" onclick="showScreen('homeScreen')">
-                <img src="assets/icons/home.svg" class="nav-icon-img">
+                <img src="/assets/icons/home.svg" class="nav-icon-img">
                 <span class="nav-label">Home</span>
             </div>
             <div class="nav-item" onclick="showScreen('insightsScreen')">
-                <img src="assets/icons/insights.svg" class="nav-icon-img">
+                <img src="/assets/icons/insights.svg" class="nav-icon-img">
                 <span class="nav-label">Insights</span>
             </div>
             <div class="nav-item" onclick="showScreen('settingsScreen')">
-                <img src="assets/icons/settings.svg" class="nav-icon-img">
+                <img src="/assets/icons/settings.svg" class="nav-icon-img">
                 <span class="nav-label">Settings</span>
             </div>
         </div>
@@ -1631,7 +1631,6 @@
         let isLoggedIn = false;
         let gapi = window.gapi;
         let googleAuth = null;
-        handleDemoLogin();  
         
         
         const ZAPIER_WEBHOOKS = {
