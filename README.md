@@ -271,9 +271,6 @@ This project was built for **CaseQuest Hackathon 2025** addressing:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Team
-
-- **Wali Lambert** - Full Stack Developer - [GitHub](https://github.com/YatoVoid)
 
 ## 🏆 Achievements
 
@@ -285,7 +282,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For issues and questions:
 - Open an issue on [GitHub](https://github.com/YatoVoid/academic-weapon2/issues)
-- Contact: [your-email@example.com]
+- Contact: [wali.lambert1960@gmail.com]
 
 ## 🙏 Acknowledgments
 
