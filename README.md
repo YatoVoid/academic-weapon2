@@ -6,6 +6,12 @@ AI-powered academic management platform that automates student workflows through
 ![Google Calendar API](https://img.shields.io/badge/Google%20Calendar-API-blue)
 ![Zapier Integration](https://img.shields.io/badge/Zapier-Integrated-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
+<img width="587" height="910" alt="image" src="https://github.com/user-attachments/assets/bd61044f-b284-46b9-831b-ae7f4cb1be66" />
+<img width="592" height="914" alt="image" src="https://github.com/user-attachments/assets/caca674b-eca1-42ab-b51f-6354f86bd572" />
+<img width="1152" height="926" alt="image" src="https://github.com/user-attachments/assets/69af713a-0785-4957-b754-210c32936752" />
+<img width="590" height="919" alt="image" src="https://github.com/user-attachments/assets/cf160e2d-f476-4e9e-970d-d59c2d01545b" />
+<img width="593" height="916" alt="image" src="https://github.com/user-attachments/assets/2833a564-ed80-409a-85f8-5834d5030541" />
+<img width="585" height="916" alt="image" src="https://github.com/user-attachments/assets/0513de6f-f2fb-4730-9d0e-6a7c3bf30399" />
 
 ## ✨ Features
 
